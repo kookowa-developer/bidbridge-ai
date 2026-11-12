@@ -1,0 +1,35 @@
+:root, [data-theme="light"] {
+  --bg: #F7F8FC; --surface: #FFFFFF; --surface2: #EFF1FA;
+  --ink: #141A2E; --muted: #4A5470; --line: #E4E8F2;
+  --primary: #4338CA; --primary2: #6D28D9; --accent: #047857;
+  --accent-bg: #D1FAE5; --warn: #B45309; --warn-bg: #FEF3C7;
+  --danger: #B91C1C; --danger-bg: #FEE2E2; --glass: rgba(255,255,255,.65);
+}
+[data-theme="dark"] {
+  --bg: #0B0F1E; --surface: #121A30; --surface2: #1A2340;
+  --ink: #EDF1FF; --muted: #A6B0C9; --line: #26314F;
+  --primary: #818CF8; --primary2: #A78BFA; --accent: #34D399;
+  --accent-bg: rgba(52,211,153,.14); --warn: #FBBF24; --warn-bg: rgba(251,191,36,.14);
+  --danger: #F87171; --danger-bg: rgba(248,113,113,.14); --glass: rgba(18,26,48,.6);
+}
+* { transition: background-color .25s ease, color .25s ease, border-color .25s ease; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+body { background: var(--bg); color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+.font-display { font-family: Manrope, Inter, system-ui, sans-serif; }
+.grad-text { background: linear-gradient(100deg, var(--primary), var(--primary2), #10B981); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.grad-btn { background: linear-gradient(100deg, #4338CA, #6D28D9); color: #fff; }
+.grad-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -10px rgba(109,40,217,.6); }
+.glass { background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.input { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: .6rem .8rem; color: var(--ink); width: 100%; }
+.input:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
+.btn { border-radius: 10px; padding: .6rem 1rem; font-weight: 600; font-size: .9rem; }
+.chip { border-radius: 999px; padding: .2rem .7rem; font-size: .75rem; font-weight: 700; }
+@keyframes fadeSlide { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.page { animation: fadeSlide .18s ease; }
+@keyframes shimmer { 0% { background-position: -400px 0; } 100% { background-position: 400px 0; } }
+.skeleton { background: linear-gradient(90deg, var(--surface2) 25%, var(--line) 50%, var(--surface2) 75%); background-size: 800px 100%; animation: shimmer 1.2s infinite; }
+mark.hl { background: rgba(16,185,129,.35); border-radius: 3px; padding: 0 2px; }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
